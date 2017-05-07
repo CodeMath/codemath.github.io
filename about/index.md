@@ -18,4 +18,4 @@ comments: false
 * Knowledgeable: Swift 3.0, Docker
 
 ## Contact
-[email](xyrho123@wowwell.co.kr){: .btn}
+[email](mailto:xyrho123@wowwell.co.kr){: .btn}
