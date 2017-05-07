@@ -74,3 +74,4 @@ exclude:
   - "*.Rmd"
   - vendor
   - .travis.yml
+  
