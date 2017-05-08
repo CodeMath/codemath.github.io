@@ -17,8 +17,8 @@ comments: true
 
 # AWS EC2 Ubuntu - Seeting
 
-참조사이트 : <a href="https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04</a>
-참조 사이트2: <a href="http://codingdojang.com/scode/364" target="_blank"></a>
+[참조사이트1](https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
+[참조 사이트2](http://codingdojang.com/scode/364)
 
 
 # How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04
@@ -332,8 +332,8 @@ sudo nginx -t
 ```
 
 
-참조할 사이트
-<a href="https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html" target="_blank">https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html</a>
+[참조할 사이트](https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html)
+
 
 
 
