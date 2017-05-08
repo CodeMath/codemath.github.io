@@ -5,7 +5,7 @@ tags: [about, coDematH, introduce]
 date: 2018-05-08
 comments: false
 ---
-    
+<img src="/assets/img/logo.png">
 <center>The goal is not to find a job, but to CREATE one for myself.</center>
 
 ## Stacks
