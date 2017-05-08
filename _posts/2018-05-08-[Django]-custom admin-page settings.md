@@ -10,6 +10,7 @@ tag:
 - custom
 - admin
 - settings
+- post
 comments: true
 ---
 
