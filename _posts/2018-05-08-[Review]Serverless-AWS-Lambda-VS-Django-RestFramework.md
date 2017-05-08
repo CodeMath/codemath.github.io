@@ -87,7 +87,7 @@ logger.info("SUCCESS: Connection to RDS mysql instance succeeded")
 {% highlight liquid %}
 {% raw %}
 {% capture images %}
-	https://github.com/CodeMath/codemath.github.io/blob/master/_posts/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-1.png?raw=true
+	https://github.com/CodeMath/codemath.github.io/blob/master/assets/img/media/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-1.png?raw=true
 {% endcapture %}
 {% include gallery images=images caption="AWS Lambda output" cols=1 %}
 {% endraw %}
@@ -105,7 +105,7 @@ logger.info("SUCCESS: Connection to RDS mysql instance succeeded")
 {% highlight liquid %}
 {% raw %}
 {% capture images %}
-	https://github.com/CodeMath/codemath.github.io/blob/master/_posts/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-2.png?raw=true
+	https://github.com/CodeMath/codemath.github.io/blob/master//assets/img/media/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-2.png?raw=true
 {% endcapture %}
 {% include gallery images=images caption="AWS Lambda HTTP 200" cols=1 %}
 {% endraw %}
