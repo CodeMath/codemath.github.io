@@ -3,14 +3,7 @@ layout: post
 title:  "[Django] custom admin page settings"
 date:   2018-05-08
 excerpt: "How to DJango's custom admin settings"
-project: true
-tag:
-- python
-- django
-- custom
-- admin
-- settings
-- post
+tag: [python,django,custom,admin,settings,post]
 comments: true
 ---
 
