@@ -21,14 +21,12 @@ comments: true
 [참조 사이트2](http://codingdojang.com/scode/364)
 
 
-# How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04
-
 
 1) 기본 python 환경설정 및 가상환경 설치
 
 ```
-`sudo apt-get update
-sudo apt-get install python-pip`
+sudo apt-get update
+sudo apt-get install python-pip
 ```
 
 
@@ -36,21 +34,21 @@ sudo apt-get install python-pip`
 
 
 ```
-`sudo pip install virtualenv virtualenvwrapper`
+sudo pip install virtualenv virtualenvwrapper
 ```
 
 가상환경까지 설치하였다면, 가상환경에 대한 PATH를 설정한다.
 
 
 ```
-`echo "export WORKON_HOME=~/Env" >> ~/.bashrc
-echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc`
+echo "export WORKON_HOME=~/Env" >> ~/.bashrc
+echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 ```
 
 bashrc에 위 두 명령어를 입력하게 되고,
 
 ```
-`source ~/.bashrc`
+source ~/.bashrc
 ```
 
 최종적으로 완료하면 가상환경까지 설치되었다.
@@ -59,52 +57,53 @@ bashrc에 위 두 명령어를 입력하게 되고,
 2) 가상환경에서 장고를 설치하자.
 
 ```
-`mkvirtualenv firstsite`
+mkvirtualenv firstsite
 ```
 
 가상환경에 대한 폴더를 생성하고,
 
 
 ```
-`pip install django`
+pip install django
 ```
 
 장고를 pip를 이용하여 설치한다. (이때 각 프로젝에 필요한 라이브러리들을 설치하면 된다.)
 
 ```
-`django-admin.py startproject firstsite`
+django-admin.py startproject firstsite
 ```
 
 장고 프로젝트를 하나 만든다.
 
 ```
-`python manage.py migrate`
+python manage.py migrate
 ```
 
 우선 migrate를 이용하여 최신화한다.
 
-
-`python manage.py createsuperuser`
+```
+python manage.py createsuperuser
+```
 
 DB의 슈퍼유저를 생성한다.
 
 
 ```
-`nano firstsite/settings.py`
+nano firstsite/settings.py
 ```
 
 먼저 만든 프로젝트의 setting.py에 들어간다.
 
 
 ```
-`STATIC_ROOT = os.path.join(BASE_DIR, "static/")`
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 ```
 
 STATIC 파일에 대한 경로를 설정한다.
 
 
 ```
-`python manage.py collected_static`
+python manage.py collected_static
 ```
 
 실제 프로젝트를 배포하기 위한, STATIC들을 한 곳에 모아둔다.
@@ -114,19 +113,19 @@ STATIC 파일에 대한 경로를 설정한다.
 
 
 ```
-`sudo apt-get install python-dev`
+sudo apt-get install python-dev
 ```
 
 uWSGI를 설치하기 위해, 가상환경에서 나와서 글로벌하게 설치해준다.
 
 ```
-`sudo pip install uwsgi`
+sudo pip install uwsgi
 ```
 
 
 
 ```
-`uwsgi --http :8080 --home /home/ubuntu/Env/talblro_api --chdir /home/ubuntu/talboro_api -w talboro_api.wsgi`
+uwsgi --http :8080 --home /home/ubuntu/Env/talblro_api --chdir /home/ubuntu/talboro_api -w talboro_api.wsgi
 ```
 
 TEST하기 위해서 위의 명령어를 입력하지만, 여기서 경로에 대한 값은 언제나 바뀔 수 있다는 것을 명심해야한다.
@@ -139,23 +138,23 @@ TEST하기 위해서 위의 명령어를 입력하지만, 여기서 경로에 �
 
 
 ```
-`sudo mkdir -p /etc/uwsgi/sites
-cd /etc/uwsgi/sites`
+sudo mkdir -p /etc/uwsgi/sites
+cd /etc/uwsgi/sites
 ```
 
 앞서 만든 uwsgi에 대한 설정파일을 만든다.
 
 
 ```
-`sudo nano firstsite.ini`
+sudo nano firstsite.ini
 ```
 
 
 
 ```
-`[uwsgi]
+[uwsgi]
 project = firstsite
-base = /home/`ubuntu`
+base = /home/ubuntu
 
 chdir = %(base)/%(project)
 home = %(base)/Env/%(project)
@@ -167,7 +166,7 @@ processes = 5
 socket = %(base)/%(project)/%(project).sock
 chmod-socket = 664
 vacuum = true
-env = LANG=en_US.UTF-8`
+env = LANG=en_US.UTF-8
 ```
 
 항상 처음 시작은 [uwsgi]로 시작한다.
@@ -190,14 +189,14 @@ HTTP가 아닌, uWSGI의 uwsgi프로토콜을 이용할 것이다. (더 빠르�
 설정파일 만든 것을 최신화시켜주자.
 
 ```
-`sudo nano /etc/init/uwsgi.conf`
+sudo nano /etc/init/uwsgi.conf
 ```
 
 
 
 
 ```
-`description "uWSGI application server in Emperor mode"
+description "uWSGI application server in Emperor mode"
 
 start on runlevel [2345]
 stop on runlevel [!2345]
@@ -205,7 +204,7 @@ stop on runlevel [!2345]
 setuid ubuntu
 setgid www-data
 
-exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites`
+exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
 ```
 
 
@@ -213,7 +212,7 @@ exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites`
 
 
 ```
-`sudo apt-get install nginx`
+sudo apt-get install nginx
 ```
 
 역 프록시를 하기 위해서(HTTP가 아닌) nginx를 설치해준다. (글로벌)
@@ -227,7 +226,7 @@ sudo nano /etc/nginx/sites-available/talboro
 
 
 ```
-`server {
+server {
     listen 80;
 
 
@@ -252,7 +251,7 @@ sudo nano /etc/nginx/sites-available/talboro
         include         uwsgi_params;
         uwsgi_pass      unix:/home/ubuntu/firstsite/firstsite.sock;
     }
-}`
+}
 ```
 
 80포트로 들어오게 하고
@@ -260,10 +259,11 @@ server_name에는 도메인 값을 써준다.(없다면 말고)
 
 우선 파비콘 오류를 제외해준다. (로그가 쌓이니까…)
 static폴더 위치값을 설정해준다. 
-(`        root /home/`ubuntu`/firstsite; 이거 드럽게 오류남....`)
+(root /home/`ubuntu`/firstsite; 이거 드럽게 오류남....)
+
 그리고 uwsgi_pass에 대한 소켓 경로를 설정해준다.
 
-** 에러/오류 로그 쌓기
+6) 에러/오류 로그 쌓기
 각각의 로그파일들에 대한 경로를 설정해주면 된다.
 
 
@@ -278,7 +278,7 @@ static폴더 위치값을 설정해준다.
 
 
 ```
-`sudo service nginx configtest`
+sudo service nginx configtest
 ```
 
 설정파일 테스트를 한다. 
@@ -286,7 +286,7 @@ static폴더 위치값을 설정해준다.
 
 
 ```
-`sudo service nginx restart`
+sudo service nginx restart
 ```
 
 전체 nginx를 재시작
@@ -299,11 +299,6 @@ static폴더 위치값을 설정해준다.
 uwsgi 스타트 한다. (최초 1번)
 
 
-46.166.185.85
-185.165.31.17
-108.240.197.24
-213.226.251.4
-177.66.235.210
 
 **주의할 점**
 
@@ -358,12 +353,12 @@ Default output format [None]: `ENTER``
 
 
 
-* **uWSGI**
+**uWSGI**
 
 application container server(application server)의 일종이다. application으로 향하는 길목의 (**WSGI** 형식의) interface 역할을 맡는다. 클라이언트의 HTTP 요청을 (우리의 경우 **Python** Web Framework인 Django로 application을 개발했으므로) application이 처리할 수 있는 Python 호출로 번역하는 역할을 맡는다.
 
 
-* **Nginx**
+**Nginx**
 
 web server의 일종이다. 클라이언트와 uWSGI 사이에 위치하여 클라이언트의 요청을 uWSGI에게 Reverse Proxy 해주는 역할을 맡는다. **Reverse Proxy**에 대해서 자세히 모르지만, 위상적으로 생각해보면 앞단에 들어오는 여러 다발(클라이언트는 여러명)의 요청을 한다발(Nginx와 uWSGI를 사이의 연결은 하나)로 묶어서 뒷단에 전달해준다고 생각해볼 수 있겠다. 또한 정적 컨텐츠를 처리할때는 Nginx의 performance가 더 뛰어나고, security feature 면에서도 뛰어나기 때문에 Nginx가 잘하는 부분은 Nginx에게 맡기는 것이다. 
 
