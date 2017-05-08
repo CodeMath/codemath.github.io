@@ -84,9 +84,11 @@ logger.info("SUCCESS: Connection to RDS mysql instance succeeded")
 
 테스팅으로 돌렸을 때,
 
-<figure>
-	<img src="2018-05-08-[Review]Serverless-AWS-Lambda-VS-Django-RestFramework-img-1.png">
-</figure>
+
+{% capture images %}
+	https://github.com/CodeMath/codemath.github.io/blob/master/_posts/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-1.png
+{% endcapture %}
+
 음... 그렇다. 가장 적은 메모리로 설정하고 돌렸더니, 122.73.ms가 나온다. (lambda test)
 그렇기 때문에 빌링은 200ms로 산정된다. (나쁜놈들 ㅠ 무조건 올리냐....쪼금만 바주....라...) ㅠㅠ
 
@@ -96,9 +98,10 @@ logger.info("SUCCESS: Connection to RDS mysql instance succeeded")
 
 그리고 Rest client 앱으로 테스트 해봤다.
 
-<figure>
-	<img src="2018-05-08-[Review]Serverless-AWS-Lambda-VS-Django-RestFramework-img-2.png">
-</figure>
+
+{% capture images %}
+	https://github.com/CodeMath/codemath.github.io/blob/master/_posts/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-2.png
+{% endcapture %}
 으악.... 속도가 늘었다.... 분명 Lambda에서는 122였는데....  아마도 캐싱이 안된 데이터를 가져오다 보니 그런 듯 하다.
 (실제 동일한 주소로 데이터를 불러오니 속도가 53ms로 확 줄었다.)
 
