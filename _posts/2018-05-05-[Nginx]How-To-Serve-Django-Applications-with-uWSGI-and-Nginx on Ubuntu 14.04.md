@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Nginx]How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04"
-date:   2018-05-08
+date:   2018-05-05
 excerpt: "AWS EC2 Ubuntu - Seeting"
 project: true
 tag:
