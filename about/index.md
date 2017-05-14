@@ -5,6 +5,11 @@ tags: [about, coDematH, introduce]
 date: 2018-05-08
 comments: false
 ---
+<style type="text/css">
+	.img-alignleft{
+  display: inline;
+	}
+</style>
 <img src="/assets/img/logo.png">
 <center>The goal is not to find a job, but to CREATE one for myself.</center>
 
@@ -16,31 +21,23 @@ comments: false
 
 
 ## Main Project
-####[2017.01-present]Juphago(Sell Stock information) iOS develop
-
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/juphago/juphago)
-
+### [2017.01-present] Juphago iOS develop [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/juphago/juphago)
+- Sell Stock information
 - Using Swift 3.0
 - Led iOS app's storyboard and alpha UX design
 
-####[2016.04-2017.02]Talboro(Non-Smoking App) API Server and DB develop 
-
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/talboro/talboro)
-
+### [2016.04-2017.02] Talbor API Server and DB develop [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/talboro/talboro)
+- Non-Smoking App
 - Using Django and Django-Restframework.
 - Database is MySQL.
 
-####[2016.10-2017.01]FWRM(Weather based agricultural management decision support system) Web and Server-less API developing 
-
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/fwrm/fwrm)
-
+### [2016.10-2017.01] FWRM Web and Server-less API develop [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/fwrm/fwrm)
+- Weather based agricultural management decision support system
 - Using Django and API is server-less architecture used by AWS Lambda
 - Outsourcing
 
-####[2016.06-2016.09]ToryCoop(Experience-based mediation platform) platform develop
-
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/torycoop/torycoop)
-
+### [2016.06-2016.09] ToryCoop platform develop [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/torycoop/torycoop)
+- Experience-based mediation platform
 - Using Django and MySQL
 - Outsourcing
 
@@ -53,8 +50,7 @@ comments: false
 * 2014.06-2014.09 LikeLion, Web-Programing with Python & Flask
 
 
-## Technical Stacks
-[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/CodeMath/codemath-stack)
+## Technical Stacks [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/CodeMath/codemath-stack)
 
 * Led the development and adoption of Python
 * Full stack development using DRF

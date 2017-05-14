@@ -1,1 +1,611 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-05-08T04:53:31+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-05-14T15:23:00+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle><entry><title type="html">[Swift] UIButton Image contentMode code</title><link href="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/" rel="alternate" type="text/html" title="[Swift] UIButton Image contentMode code" /><published>2017-05-14T00:00:00+09:00</published><updated>2017-05-14T00:00:00+09:00</updated><id>https://codemath.github.io/Swift]-UIButton-Image-contentMode-code</id><content type="html" xml:base="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/">&lt;p&gt;Image를 클릭하면 확대하는 View를 만들어주는 &lt;a href=&quot;https://github.com/wxxsw/GSImageViewerController&quot;&gt;라이브러리&lt;/a&gt; 를 사용하던 중, 버튼에 들어간 이미지의 비율이 맞지 않은 경우가 있었다.&lt;/p&gt;
+
+&lt;p&gt;특히나 아이폰 5,6,6S와 같이 비율이 다르기 때문에 이미지 자체를 비율고정값으로 해줘야한다.
+이때 해당 버튼의 이미지 비율을 바꾸는 코드는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ImageButton.imageView?.contentMode = .scaleAspectFit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이렇게 해주면 버튼의 이미지 비율을 바꿀 수 있다.&lt;/p&gt;</content><category term="Swift" /><category term="UIButton" /><category term="ios" /><category term="xcode" /><category term="post" /><summary type="html">UIButton Image re-sizing code</summary></entry><entry><title type="html">[Swift]Cocoapods 설치 및 에러 해결</title><link href="https://codemath.github.io/Swift-Cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0/" rel="alternate" type="text/html" title="[Swift]Cocoapods 설치 및 에러 해결" /><published>2017-05-08T00:00:00+09:00</published><updated>2017-05-08T00:00:00+09:00</updated><id>https://codemath.github.io/[Swift]Cocoapods-설치-및-에러-해결</id><content type="html" xml:base="https://codemath.github.io/Swift-Cocoapods-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0/">&lt;p&gt;설치 코드는 터미널에서&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo gem install cocoapods
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;(오래걸린다.)&lt;/p&gt;
+
+&lt;p&gt;그리고 위 코코아팟을 다 설치하고 나면, 해당 프로젝트 경로로 가서
+touch podfile
+으로 초기화 파일을 만든다.&lt;/p&gt;
+
+&lt;p&gt;그리고 해당 podFile을 열어서 라이브러리를 설치해준다.&lt;/p&gt;
+
+&lt;p&gt;그런데 간혹 가다가 이상한 에러가 발생한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
+
+[!] The `ZuphaGo [Debug]` target overrides the `OTHER_LDFLAGS` build setting defined in 
+`Pods/Target Support Files/Pods-ZuphaGo/Pods-ZuphaGo.debug.xcconfig'. 
+This can lead to problems with the CocoaPods installation 
+- Use the `$(inherited)` flag, or 
+- Remove the build settings from the target.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;무슨 말인지 설명하면, 코코아팟을 이용해서 라이브러리를 오버라이드할 때 환결 설정이 문제가 된 것이다.
+따라서 저 말에 따른 해결방법으로&lt;/p&gt;
+
+&lt;p&gt;(1) 프로젝트/타겟 → Build Settings에서 “ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES”를 검색
+그리고 디벅그와 릴리스 둘 다, “$(inherited)”를 추가해준다.&lt;/p&gt;
+
+&lt;p&gt;그래도 해결이 안될 것이다.&lt;/p&gt;
+
+&lt;p&gt;두번째로 해결해야하는 부분이&lt;/p&gt;
+
+&lt;p&gt;(2) Build Settings에서 Other Linker Flags에 들어간다. 그리고 기존에 -ObjC로 되어있는  부분을 삭제 한다.&lt;/p&gt;
+
+&lt;p&gt;그러면 pod으로 프레임워크 라이브러리는 설치가 된 것이다.&lt;/p&gt;
+
+&lt;p&gt;하지만 여기서 문제, 설치가 되었다고 다 열리는게 아니란다….
+즉, 해당 모듈을 가져올 수 없다는 어처구니없는 오류가 나온다.&lt;/p&gt;
+
+&lt;p&gt;우리가 설치한 프레임워크를 따로 추가해줘야한다. (귀찮)&lt;/p&gt;
+
+&lt;p&gt;(1) Build Phases 에서  Link Binary With Libraries 에 해당 프레임워크를 추가한다. (여기서 기존의 ###.xcodeproj 로 하면 안될 수 있으니 추가로 만들어진 ###.xcworkspace 파일을 열어 추가한다.&lt;/p&gt;
+
+&lt;p&gt;(2) 그리고 혹시나…. 해서 하는데, 만약 추가해도 에러 표시가 난다면 한 번 빌드를 해주자. 그러면 아무런 문제가 없을 것이다~&lt;/p&gt;</content><category term="Swift" /><category term="cocoapods" /><category term="ios" /><category term="xcode" /><category term="post" /><summary type="html">Cocopods 설치 및 에러 해결</summary></entry><entry><title type="html">[Review]Serverless AWS Lambda VS Django-RestFramework</title><link href="https://codemath.github.io/Review-Serverless-AWS-Lambda-VS-Django-RestFramework/" rel="alternate" type="text/html" title="[Review]Serverless AWS Lambda VS Django-RestFramework" /><published>2017-05-08T00:00:00+09:00</published><updated>2017-05-08T00:00:00+09:00</updated><id>https://codemath.github.io/[Review]Serverless-AWS-Lambda-VS-Django-RestFramework</id><content type="html" xml:base="https://codemath.github.io/Review-Serverless-AWS-Lambda-VS-Django-RestFramework/">&lt;p&gt;새로운 테스팅 앱을 만들기 위해서 서버를 만들어야 했다.
+사실 매번 EC2를 만들면서 환경설정을 직접 명령어로 쳐줘야했었다. 물론 도커로 그냥 필요할 떄마다 이미 저장된 컨테이너를 불러와도 되지만,
+여전히 나에겐 귀찮은 존재…. “서버”&lt;/p&gt;
+
+&lt;p&gt;마침 “유행”?인듯 아닌 듯 “Serverless”라는 것이 화두되었고, 어짜피 테스팅 앱으로 만들 서버를 이번 기회에 Serverless하게 바꿔보기로 했다.&lt;/p&gt;
+
+&lt;p&gt;[ 참고사항 : Python 2.7 / 각 코드 및 설정마다 오류가 있을 수 있습니다. 단순히 테스팅 목적을 위한 서버라… ]&lt;/p&gt;
+
+&lt;p&gt;여튼 기존에 로컬에서 DRF로 만든 API를 함수형태로 바꿔서 정리하였다.&lt;/p&gt;
+
+&lt;p&gt;막상 doc를 보면서 코드를 올리고 테스트해보려 한 순간…. 라이브러리 문제다. 제대로 import 할 수 없다고 한다….
+(…. 경로….) 파이참을 사용하고 있던 터라 가상환경의 라이브러리를 제대로 import 못한 것이다. (여기서 1차멘붕)&lt;/p&gt;
+
+&lt;p&gt;가상환경에 설치한 몇몇의 라이브러리들을 꺼내와 파이썬 파일과 합쳐서 업로드 하고 테스트하였다.&lt;/p&gt;
+
+&lt;p&gt;(get 이나 그냥 print 로 return 하는 부분은 쉬우니 넘어가도록 함.)
+사실 상 2차 멘붕이 오기시작한 부분은 “RDS”에서 데이터를 가져오기 위해서는 ‘쿼리문’을 작성해야한다는 것이다. (오우쉣)&lt;/p&gt;
+
+&lt;p&gt;그동안  Django에서 얼마나 쉽게 데이터를 가져왔나? ㅠㅠ&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Django
+User.objects.all()
+Device.objects.filter(uuid= Is_uuid)
+
+#mySQL
+&quot;select * from auth_user&quot;
+&quot;select * from Device where uuid='%s'&quot; %(Is_uuid)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;그나마 파이썬으로 쿼리문 작성하니 그나마….그나마 편하지만, 그래도 어~~엄청 불편했다. (그러게 mysql 공부하기 싫다고 땡깡부리지 말랬지?ㅠ)&lt;/p&gt;
+
+&lt;p&gt;그래도 그나마 RDS 연결 관련해서는 AWS 문서에 예제로 잘 나와있다. (고마워요~)&lt;/p&gt;
+
+&lt;p&gt;함수 파일말고 라이브러리 처럼 import하는 방식으로 rds 정보를 입력해두고서, 메인 파일에서 불러와 사용한다.
+예를 들어&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import sys
+import logging
+import rds_config
+
+#rds settings
+rds_host  = &quot;mysql-rds-host&quot;
+name = rds_config.db_username
+password = rds_config.db_password
+db_name = rds_config.db_name
+
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+try:
+    conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5, charset=&quot;utf8&quot;, use_unicode=True)
+except:
+    logger.error(&quot;ERROR: Unexpected error: Could not connect to MySql instance.&quot;)
+    sys.exit()
+
+logger.info(&quot;SUCCESS: Connection to RDS mysql instance succeeded&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;이런식으로 코드를 먼저 돌리고 hadler처리를 하면 된다. (쉽당)&lt;/p&gt;
+
+&lt;p&gt;클라우드 왓치와 함께 로그를 저장하고 모니터링할 수 있어서 왠걸…. 걍…. 이지하다.&lt;/p&gt;
+
+&lt;p&gt;사실 좀 멘붕은 아니고 당황스러웠던 점은, Django에서는 Httpresponse로 json을 dumps시켜서 넘겨줬었는데 여기서는 그냥 dict 형태로 던져도 알아서 json으로 읽어올 수 있었다. (왜지?왜지?왜지?왜지?)
+(사실,  response body에서 나오는 부분의 컨텐츠 타입을 API Gateway에서 json으로 처리해버린다는 것을 보기전까지만 해도 이해가 되지 않았다….ㅠ)&lt;/p&gt;
+
+&lt;p&gt;여튼 그냥 dict로 넘겨버릴 수 있다니…. python 사용자 입장에서는 정말 말 그대로 개이득이다.&lt;/p&gt;
+
+&lt;p&gt;테스팅으로 돌렸을 때,&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;https://github.com/CodeMath/codemath.github.io/blob/master/assets/img/media/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-1.png?raw=true&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;음… 그렇다. 가장 적은 메모리로 설정하고 돌렸더니, 122.73.ms가 나온다. (lambda test)
+그렇기 때문에 빌링은 200ms로 산정된다. (나쁜놈들 ㅠ 무조건 올리냐….쪼금만 바주….라…) ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;여튼 1차 테스트에서는 이정도 속도가 나오긴한다.&lt;/p&gt;
+
+&lt;p&gt;그리고 API Gateway에 물려서 API로 만들어 준다. (자세한 방법은 다음에….)&lt;/p&gt;
+
+&lt;p&gt;그리고 Rest client 앱으로 테스트 해봤다.&lt;/p&gt;
+
+&lt;figure&gt;
+	&lt;img src=&quot;https://github.com/CodeMath/codemath.github.io/blob/master/assets/img/media/2018-05-08-%5BReview%5DServerless-AWS-Lambda-VS-Django-RestFramework-img-2.png?raw=true&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;으악…. 속도가 늘었다…. 분명 Lambda에서는 122였는데….  아마도 캐싱이 안된 데이터를 가져오다 보니 그런 듯 하다.
+(실제 동일한 주소로 데이터를 불러오니 속도가 53ms로 확 줄었다.)&lt;/p&gt;
+
+&lt;p&gt;아마도 최종 빌링 값은 100 또는 200 (캐싱안되 있다면….300)으로 나올 것 같다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;현재 AWS 프리티어로 Lambda를 사용할 경우, 가장 적은 메모리(128)을 사용하면 320만 ms를 무료로 사용할 수 있다. (물론 프리티어 끝나고도 쭈욱 이어진다고 한다.)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;AWS Lambda를 사용하면서 느낀 강점은 각 API를 잘게 쪼개 하나의 핸들러로 관리할 수 있다는 장점이다. (이게 어마어마 하게 편하다.)
+각 기능이나 추가되는 부분에 대해서 핸들러의 연결성이 낮아져 관리와 업데이트가 참 용이하다는 것을 느꼈다.(으앙 지리뮤)&lt;/p&gt;
+
+&lt;p&gt;그동안 DRF를 이용하면서 Swagger를 만들고 테스팅하게끔하는 부분이 정말 귀찮을 만큼?! 짜증이 나긴했었는데…. 이건 뭐 엄청 편해졌다.
+(사실 그동안 주의깊게 안봐서 그렇지 API Gateway도 진짜좋다….ㅎ)&lt;/p&gt;</content><category term="aws" /><category term="serverless" /><category term="server" /><category term="lambda" /><category term="review" /><category term="post" /><summary type="html">[Review]Serverless AWS Lambda VS Django-RestFramework</summary></entry><entry><title type="html">[Django] custom admin page settings</title><link href="https://codemath.github.io/Django-custom-admin-page-settings/" rel="alternate" type="text/html" title="[Django] custom admin page settings" /><published>2017-05-08T00:00:00+09:00</published><updated>2017-05-08T00:00:00+09:00</updated><id>https://codemath.github.io/[Django]-custom admin-page settings</id><content type="html" xml:base="https://codemath.github.io/Django-custom-admin-page-settings/">&lt;center&gt;#Django - custom admin page settings&lt;/center&gt;
+
+&lt;p&gt;Django에서 custom으로 admin페이지를 설정하기 위해서는 아주 간단하다.&lt;/p&gt;
+
+&lt;p&gt;우선  settings.py에서 다음과 같은 코드와 설정을 추가하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
+
+INSTALLED_APPS = [
+...
+'django.contrib.admin',
+...
+]
+...
+TEMPLATES = [
+    {
+        ...
+           'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+        ...
+    }
+]
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기서 주의해야한다. 즉, 우리가 수정할 django admin에 해당하는 html파일을 복사해서 수정을 해도 계속 예전것으로 나오는 문제가 생길 것이다. 구글링해서 찾긴했다. (http://stackoverflow.com/questions/25727687/django-1-7-updating-base-site-html-not-working)
+짜증나는게 계속 바뀌지 않는 것.&lt;/p&gt;
+
+&lt;p&gt;그 이유를 들여다 보면, 우리가 custom admin html을 수정환 application이 settings.py의 INSTALLED_APPS 리스트에서 뒤쪽에 나와서 적용이 안되는 것이다. 즉, admin html을 사용할 놈이 django.contrib.admin 이 놈부터 적용되서 그런 것 이다.
+따라서 맨 뒤로~ 맨 뒤로~ 보내주면 우리가 커스텀한 놈이 나온다!&lt;/p&gt;</content><category term="python" /><category term="django" /><category term="custom" /><category term="admin" /><category term="settings" /><category term="post" /><summary type="html">How to DJango's custom admin settings</summary></entry><entry><title type="html">[Nginx]How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04</title><link href="https://codemath.github.io/Nginx-How-To-Serve-Django-Applications-with-uWSGI-and-Nginx-on-Ubuntu-14.04/" rel="alternate" type="text/html" title="[Nginx]How To Serve Django Applications with uWSGI and Nginx on Ubuntu 14.04" /><published>2017-05-05T00:00:00+09:00</published><updated>2017-05-05T00:00:00+09:00</updated><id>https://codemath.github.io/[Nginx]How-To-Serve-Django-Applications-with-uWSGI-and-Nginx on Ubuntu 14.04</id><content type="html" xml:base="https://codemath.github.io/Nginx-How-To-Serve-Django-Applications-with-uWSGI-and-Nginx-on-Ubuntu-14.04/">&lt;h1 id=&quot;aws-ec2-ubuntu---seeting&quot;&gt;AWS EC2 Ubuntu - Seeting&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-14-04&quot;&gt;참조사이트1&lt;/a&gt;
+&lt;a href=&quot;http://codingdojang.com/scode/364&quot;&gt;참조 사이트2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;1) 기본 python 환경설정 및 가상환경 설치&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;우분투에 필수 환경설정을 한다. python-pip 설치 까지 한 후, 가상환경 라이브러리를 설치하면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pip install virtualenv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;가상환경까지 설치하였다면, 가상환경에 대한 PATH를 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo &quot;export WORKON_HOME=~/Env&quot; &amp;gt;&amp;gt; ~/.bashrc
+echo &quot;source /usr/local/bin/virtualenvwrapper.sh&quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;bashrc에 위 두 명령어를 입력하게 되고,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;최종적으로 완료하면 가상환경까지 설치되었다.&lt;/p&gt;
+
+&lt;p&gt;2) 가상환경에서 장고를 설치하자.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkvirtualenv firstsite
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;가상환경에 대한 폴더를 생성하고,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install django
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;장고를 pip를 이용하여 설치한다. (이때 각 프로젝에 필요한 라이브러리들을 설치하면 된다.)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;django-admin.py startproject firstsite
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;장고 프로젝트를 하나 만든다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py migrate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;우선 migrate를 이용하여 최신화한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;DB의 슈퍼유저를 생성한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano firstsite/settings.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;먼저 만든 프로젝트의 setting.py에 들어간다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;STATIC_ROOT = os.path.join(BASE_DIR, &quot;static/&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;STATIC 파일에 대한 경로를 설정한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py collected_static
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;실제 프로젝트를 배포하기 위한, STATIC들을 한 곳에 모아둔다.&lt;/p&gt;
+
+&lt;p&gt;3) uWSGI Application Server 만들기&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;uWSGI를 설치하기 위해, 가상환경에서 나와서 글로벌하게 설치해준다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pip install uwsgi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uwsgi --http :8080 --home /home/ubuntu/Env/talblro_api --chdir /home/ubuntu/talboro_api -w talboro_api.wsgi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;TEST하기 위해서 위의 명령어를 입력하지만, 여기서 경로에 대한 값은 언제나 바뀔 수 있다는 것을 명심해야한다.
+(Env에 대한 경로와  chdir의 경로를 잘 파악해서 입력해준다.)&lt;/p&gt;
+
+&lt;p&gt;4) Configuration Files Setting&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir -p /etc/uwsgi/sites
+cd /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;앞서 만든 uwsgi에 대한 설정파일을 만든다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano firstsite.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[uwsgi]
+project = firstsite
+base = /home/ubuntu
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 664
+vacuum = true
+env = LANG=en_US.UTF-8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;항상 처음 시작은 [uwsgi]로 시작한다.
+그리고 중복적으로 사용될 변수 (project / base)와 같은 것들은 앞에서 선언해주고 재사용하면 된다.&lt;/p&gt;
+
+&lt;p&gt;chdir : 앞서 만든 장고프로젝트의 경로
+home: 가상환경 Env에 대한 경로
+module: 프로젝트 wsgi 파일&lt;/p&gt;
+
+&lt;p&gt;master: 관리자
+processes: 쓰레드라고 생각하면 된다. (일하는 놈)&lt;/p&gt;
+
+&lt;p&gt;다음으로 네트워크 포트를 설정하기 위해서 Unix소켓을 이용할 예정이다.
+HTTP가 아닌, uWSGI의 uwsgi프로토콜을 이용할 것이다. (더 빠르고 쉽다. / 여기서는 nginx를 이용한다.)&lt;/p&gt;
+
+&lt;p&gt;여기서 vacuum이라는 것은, 소켓 파일에 대한 삭제이다.
+즉, 서비스가 멈췄을 때, 소켓 파일을 자동으로 삭제할 것인가? 에 대한 것이다.&lt;/p&gt;
+
+&lt;p&gt;설정파일 만든 것을 최신화시켜주자.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/init/uwsgi.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;description &quot;uWSGI application server in Emperor mode&quot;
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+setuid ubuntu
+setgid www-data
+
+exec /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5) Nginx as  a Reverse Proxy&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;역 프록시를 하기 위해서(HTTP가 아닌) nginx를 설치해준다. (글로벌)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/nginx/sites-available/talboro
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;아파치와 비슷하게 설정파일을 셋팅한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+    listen 80;
+
+
+    client_max_body_size 5M;
+    
+    location = /favicon.ico { access_log off; log_not_found off; }
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error1.log;
+    
+    location /static {
+        autoindex    on;
+        alias /`home/`ubuntu``/`firstsite/`collected_static;
+
+    }
+    
+    location /media {
+        autoindex on;
+        alias /home/```ubuntu```/``firstsite``/media/;
+    }
+    
+    location / {
+        include         uwsgi_params;
+        uwsgi_pass      unix:/home/ubuntu/firstsite/firstsite.sock;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;80포트로 들어오게 하고
+server_name에는 도메인 값을 써준다.(없다면 말고)&lt;/p&gt;
+
+&lt;p&gt;우선 파비콘 오류를 제외해준다. (로그가 쌓이니까…)
+static폴더 위치값을 설정해준다. 
+(root /home/&lt;code class=&quot;highlighter-rouge&quot;&gt;ubuntu&lt;/code&gt;/firstsite; 이거 드럽게 오류남….)&lt;/p&gt;
+
+&lt;p&gt;그리고 uwsgi_pass에 대한 소켓 경로를 설정해준다.&lt;/p&gt;
+
+&lt;p&gt;6) 에러/오류 로그 쌓기
+각각의 로그파일들에 대한 경로를 설정해주면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`sudo ln -s /etc/nginx/sites-available/firstsite /etc/nginx/sites-enabled`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;아파치처럼 available에 만든 nginx를 enabled로 복사한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx configtest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;설정파일 테스트를 한다. 
+여기서 OK라고 뜨면 완성된 것이다. Fail이라고 뜨면 아까 만든 파일을 다시 확인해 볼 것.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;전체 nginx를 재시작&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`sudo service uwsgi start`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;uwsgi 스타트 한다. (최초 1번)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;주의할 점&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1) AWS EC2 Instance를 사용할 경우, security group에서 HTTP 포트를 열어줘야한다.
+2) Nginx의 default파일을 삭제해줘야한다. 안그러면 귀찮다.
+3) 프로젝트 파일 수정후, 적용하려면 현재 서비스를 멈추고 나서 해야 적용된다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service uwsgi stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;서비스를 멈추고 나서,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service uwsgi start
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;재시작을 하면 자연스럽게 적용된다.&lt;/p&gt;
+
+&lt;p&gt;현재 conf 파일 확인&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html&quot;&gt;참조할 사이트&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;EC2에서 S3 접근을 위한 AWS IAM configur&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ubuntu에 먼저 설치할 것&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install awscli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;`$ aws `configure`
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: ``ap-northeast-2``
+Default output format [None]: `ENTER``
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;uWSGI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;application container server(application server)의 일종이다. application으로 향하는 길목의 (&lt;strong&gt;WSGI&lt;/strong&gt; 형식의) interface 역할을 맡는다. 클라이언트의 HTTP 요청을 (우리의 경우 &lt;strong&gt;Python&lt;/strong&gt; Web Framework인 Django로 application을 개발했으므로) application이 처리할 수 있는 Python 호출로 번역하는 역할을 맡는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nginx&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;web server의 일종이다. 클라이언트와 uWSGI 사이에 위치하여 클라이언트의 요청을 uWSGI에게 Reverse Proxy 해주는 역할을 맡는다. &lt;strong&gt;Reverse Proxy&lt;/strong&gt;에 대해서 자세히 모르지만, 위상적으로 생각해보면 앞단에 들어오는 여러 다발(클라이언트는 여러명)의 요청을 한다발(Nginx와 uWSGI를 사이의 연결은 하나)로 묶어서 뒷단에 전달해준다고 생각해볼 수 있겠다. 또한 정적 컨텐츠를 처리할때는 Nginx의 performance가 더 뛰어나고, security feature 면에서도 뛰어나기 때문에 Nginx가 잘하는 부분은 Nginx에게 맡기는 것이다.&lt;/p&gt;</content><category term="Nginx" /><category term="django" /><category term="ubunt" /><category term="aws" /><category term="uwsgi" /><category term="tutorial" /><category term="post" /><summary type="html">AWS EC2 Ubuntu - Seeting</summary></entry><entry><title type="html">기상청 OPEN API 사용하기</title><link href="https://codemath.github.io/%EA%B8%B0%EC%83%81%EC%B2%AD-OPEN-AP-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="기상청 OPEN API 사용하기" /><published>2017-04-06T00:00:00+09:00</published><updated>2017-04-06T00:00:00+09:00</updated><id>https://codemath.github.io/기상청-OPEN-AP-사용하기</id><content type="html" xml:base="https://codemath.github.io/%EA%B8%B0%EC%83%81%EC%B2%AD-OPEN-AP-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">&lt;h1 id=&quot;개발노트-기상청-open-api-사용하기&quot;&gt;[개발노트] 기상청 OPEN API 사용하기&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-기상청-open-api&quot;&gt;(1) 기상청 OPEN API&lt;/h2&gt;
+
+&lt;p&gt;기상청 open api 를 이용하기 위해서는 우선, 공공데이터 포털에 들어가 api key 신청을 해야만 한다.&lt;/p&gt;
+
+&lt;p&gt;동네예보조회 서비스를 통해 GPS로 받은 위/경도 값으로 기상값들을 받아오려 한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/ForecastSpaceData?
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기에 추가적으로 인증 받은 service key 를 넣어줘야 한다. (GET 방식)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ServiceKey=(service key)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;다음으로 여러가지 파라미터 값들 중에서 기본적으로 사용해야하는 파라미터는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;base_date=  # 년월일
+base_time=    # 시간분
+nx =    # 가로축 값
+ny =    # 세로축 값
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기서 가장 의아하게 생각되는 부분이 바로 nx, ny 부분이다. 위/경도 값을 사용하는게 아니라, 격자로 인식한다.
+이 격자값은 open api 문서의 엑셀로 데이터화 되어있다. 특정 지역에 따라 격자 값(x,y)이 다르기 때문에 별도로 계산해줘야한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;우리가 사용자에게 받아오는 값은 기본적으로 GPS 값이다. 이 GPS 값을 해당 지역으로 변환하여 다시 격자값으로 변환해줘야한다.&lt;/p&gt;
+
+&lt;p&gt;그나마 가장 편한 방법으로는 다음 API를 이용해서 사용자에게 받은 GPS값을 주소값으로 변환시키는 API를 이용하는 것이다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://apis.daum.net/local/geo/coord2addr?apikey=
+
+&amp;amp;longitude=
+&amp;amp;latitude=
+&amp;amp;inputCoordSystem=WGS84&amp;amp;output=json
+ 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;api key 를 넣은 다음, 위/경도 값을 넣어 주자. ( 모두 GET 방식이다. ) GPS 방식에 따라 inputCoodSystem의 값을 바꿔주면 된다. (자세한 것은 다음 API 문서를 참조하자.) 출력값을 json으로 받아오자.&lt;/p&gt;
+
+&lt;p&gt;그러면 다음과 같이 값이 떨어진다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;서울특별시 강동구 천호1동&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;첫 번째 구분인 서울특별시와 같이 1차 분류값이다. (예를 들어 인천광역시와 같은 광역시나 충청북도,전라북도,경상북도와 같은 도 )
+2차 분류값은 1차 분류값으로 떨어진 2차 분류, 그리고 마지막 읍/면/리/동 과 같은 3차 분류이다.&lt;/p&gt;
+
+&lt;p&gt;총 3가지 분류값을 기준으로 공공데이터 포털 open api 에서 제공한 엑셀 문서를 찾아보면 해당 지역의 격자 값을 얻을 수 있다.
+(매번 엑셀에서 뒤지는 것 보다, DB에서 조회하는게 더 빠를 것이다. )&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;다음으로 동네예보조회 서비스에서 잡은 예보 시간에 대한 개념에 대해 먼저 이해를 해야한다.&lt;/p&gt;
+
+&lt;p&gt;open api 문서를 읽어보면 3시간 단위로 예보가 업데이트 됨을 알 수 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Base_time : 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300 (1일 8회)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;하지만 base_time을 기준으로 바로 api를 제공하지는 않는다. 30분정도 뒤애야 api 해당 예보를 제공한다.&lt;/p&gt;
+
+&lt;p&gt;따라서 현재 시간을 기준으로 어떤 예보파일을 가져와야하는지 체크해야한다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# newtime : 예보 파일 선택을 위한 시간 값
+# newdate : 예보 파일 선택을 위한 날짜 값
+
+if 0 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 230:    
+    newdate = (date.today()-timedelta(days=1)).strftime(&quot;%Y%m%d&quot;)
+    newtime = '2300'
+    
+elif 230 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 530:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '0200'
+    
+elif 530 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 830:
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '0500'
+    
+elif 830 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 1130:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '0800'
+    
+elif 1130 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 1430:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '1100'
+    
+elif 1430 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 1730:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '1400'
+    
+elif 1730 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 2030:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '1700'
+    
+elif 2030 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 2330:    
+    newdate = date.today().strftime(&quot;%Y%m%d&quot;)
+    newtime = '2000'
+    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;여기서 newdate 변수를 보면,&lt;/p&gt;
+
+&lt;p&gt;예를 들어 현재 시간이 새벽 1시라고 하면 새벽 2시 예보 파일을 가져올 수 없다. ( api 미제공 )
+따라서 그 전날의 23시 데이터를 가져와야한다. 그렇다면 지금 새벽 1시의 날짜가 아닌 하루 전날의 날짜로 23시 데이터를 불러와야한다.&lt;/p&gt;
+
+&lt;p&gt;해당 api를 이용해서 json으로 값을 받아오면, 여러가지 값들이 나온다.&lt;/p&gt;
+
+&lt;p&gt;총 14가지의 항목값을 조회할 수 있다. 14가지 항목이 모두 필요한게 아니니, 당연히 필터를 통해 원하는 데이터만 얻도록 하자.&lt;/p&gt;
+
+&lt;p&gt;위에서 사용한 api 주소값 뒤에 get 방식으로 다음을 추가하도록 하자.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;amp;category= (항목,항목,항목)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;카테고리라는 변수이름으로 우리가 원하는 값들만 필터링해서 불러올 수 있다.&lt;/p&gt;
+
+&lt;p&gt;그리고 api 이기 때문에 지저분한?! 값들이 조금 섞여 있다. 적절하게 불필요한 부분을 날려서 사용하면 된다.&lt;/p&gt;</content><category term="api" /><category term="기상청" /><category term="rest" /><summary type="html">기상청 OPEN API를 이용해서 날씨 데이터 받아오기</summary></entry></feed>
