@@ -16,33 +16,33 @@ comments: false
 
 
 ## Main Project
-* [2017.01-present]Juphago(Sell Stock information) iOS develop
+####[2017.01-present]Juphago(Sell Stock information) iOS develop
 
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/juphago/juphago)
 
-  - Using Swift 3.0
-  - Led iOS app's storyboard and alpha UX design
+- Using Swift 3.0
+- Led iOS app's storyboard and alpha UX design
 
-* [2016.04-2017.02]Talboro(Non-Smoking App) API Server and DB develop 
+####[2016.04-2017.02]Talboro(Non-Smoking App) API Server and DB develop 
 
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/talboro/talboro)
 
-  - Using Django and Django-Restframework.
-  - Database is MySQL.
+- Using Django and Django-Restframework.
+- Database is MySQL.
 
-* [2016.10-2017.01]FWRM(Weather based agricultural management decision support system) Web and Server-less API developing 
+####[2016.10-2017.01]FWRM(Weather based agricultural management decision support system) Web and Server-less API developing 
 
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/fwrm/fwrm)
 
-  - Using Django and API is server-less architecture used by AWS Lambda
-  - Outsourcing
+- Using Django and API is server-less architecture used by AWS Lambda
+- Outsourcing
 
-* [2016.06-2016.09]ToryCoop(Experience-based mediation platform) platform develop
+####[2016.06-2016.09]ToryCoop(Experience-based mediation platform) platform develop
 
 [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/torycoop/torycoop)
 
-  - Using Django and MySQL
-  - Outsourcing
+- Using Django and MySQL
+- Outsourcing
 
 
 ## Education
