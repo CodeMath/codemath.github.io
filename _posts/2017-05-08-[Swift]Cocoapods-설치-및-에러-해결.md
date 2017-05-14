@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Swift]Cocoapods 설치 및 에러 해결"
-date:   2018-05-08
+date:   2017-05-08
 excerpt: "Cocopods 설치 및 에러 해결"
 tag: [Swift,cocoapods,ios,xcode,post]
 comments: true
