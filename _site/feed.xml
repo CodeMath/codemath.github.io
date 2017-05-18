@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-05-14T15:23:00+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle><entry><title type="html">[Swift] UIButton Image contentMode code</title><link href="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/" rel="alternate" type="text/html" title="[Swift] UIButton Image contentMode code" /><published>2017-05-14T00:00:00+09:00</published><updated>2017-05-14T00:00:00+09:00</updated><id>https://codemath.github.io/Swift]-UIButton-Image-contentMode-code</id><content type="html" xml:base="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/">&lt;p&gt;Image를 클릭하면 확대하는 View를 만들어주는 &lt;a href=&quot;https://github.com/wxxsw/GSImageViewerController&quot;&gt;라이브러리&lt;/a&gt; 를 사용하던 중, 버튼에 들어간 이미지의 비율이 맞지 않은 경우가 있었다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-05-14T20:08:07+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle><entry><title type="html">[Pyhon] class 구조 이해하기</title><link href="https://codemath.github.io/Pyhon-class-%EA%B5%AC%EC%A1%B0-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Pyhon] class 구조 이해하기" /><published>2017-05-14T00:00:00+09:00</published><updated>2017-05-14T00:00:00+09:00</updated><id>https://codemath.github.io/[Pyhon]-class-구조-이해하기</id><content type="html" xml:base="https://codemath.github.io/Pyhon-class-%EA%B5%AC%EC%A1%B0-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/">&lt;h2 id=&quot;객체지향-프로그래밍-python---p154&quot;&gt;객체지향 프로그래밍 python - P.154&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;인스턴스화 연산(클래스 확인) -&amp;gt; 빈 객체 생성(함수포함) -&amp;gt; &lt;strong&gt;init&lt;/strong&gt; 가 있다면, 호출해서 새로만든 빈 객체 초기화&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;빈 객체는 self 변수를 추가로 받고 모듈,사전,다른 객체에서처럼 변수에 값 설정
+self.tangerine 객체 초기화 &amp;amp; 새로 만든 객체를 받아 thing 변수에 대입&lt;/p&gt;</content><category term="python" /><category term="study" /><category term="class" /><category term="post" /><summary type="html">python class instructure</summary></entry><entry><title type="html">[Swift] UIButton Image contentMode code</title><link href="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/" rel="alternate" type="text/html" title="[Swift] UIButton Image contentMode code" /><published>2017-05-14T00:00:00+09:00</published><updated>2017-05-14T00:00:00+09:00</updated><id>https://codemath.github.io/Swift]-UIButton-Image-contentMode-code</id><content type="html" xml:base="https://codemath.github.io/Swift-UIButton-Image-contentMode-code/">&lt;p&gt;Image를 클릭하면 확대하는 View를 만들어주는 &lt;a href=&quot;https://github.com/wxxsw/GSImageViewerController&quot;&gt;라이브러리&lt;/a&gt; 를 사용하던 중, 버튼에 들어간 이미지의 비율이 맞지 않은 경우가 있었다.&lt;/p&gt;
 
 &lt;p&gt;특히나 아이폰 5,6,6S와 같이 비율이 다르기 때문에 이미지 자체를 비율고정값으로 해줘야한다.
 이때 해당 버튼의 이미지 비율을 바꾸는 코드는 다음과 같다.&lt;/p&gt;
@@ -494,10 +501,9 @@ Default output format [None]: `ENTER``
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;여기에 추가적으로 인증 받은 service key 를 넣어줘야 한다. (GET 방식)&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ServiceKey=(service key)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;여기에 추가적으로 인증 받은 service key 를 넣어줘야 한다. (GET 방식)
+ServiceKey= (service key)&lt;/p&gt;
+
 &lt;p&gt;다음으로 여러가지 파라미터 값들 중에서 기본적으로 사용해야하는 파라미터는 다음과 같다.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;base_date=  # 년월일
@@ -602,7 +608,7 @@ elif 2030 &amp;lt;= int(datetime.now().strftime(&quot;%H%M&quot;)) &amp;lt; 2330
 
 &lt;p&gt;위에서 사용한 api 주소값 뒤에 get 방식으로 다음을 추가하도록 하자.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;amp;category= (항목,항목,항목)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;amp;category= 항목,항목,항목
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
