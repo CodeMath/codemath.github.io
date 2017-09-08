@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-09-09T08:00:15+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle><entry><title type="html">Selenium 활용기(1)</title><link href="https://codemath.github.io/Selenium-%ED%99%9C%EC%9A%A9%EA%B8%B0(1)/" rel="alternate" type="text/html" title="Selenium 활용기(1)" /><published>2017-09-08T00:00:00+09:00</published><updated>2017-09-08T00:00:00+09:00</updated><id>https://codemath.github.io/Selenium 활용기(1)</id><content type="html" xml:base="https://codemath.github.io/Selenium-%ED%99%9C%EC%9A%A9%EA%B8%B0(1)/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://codemath.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="https://codemath.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://codemath.github.io/" rel="alternate" type="text/html" /><updated>2017-09-09T08:11:27+09:00</updated><id>https://codemath.github.io/</id><title type="html">coDematH</title><subtitle>The goal is not to find a job, but to CREATE one for myself.</subtitle><entry><title type="html">Selenium 활용기(1)</title><link href="https://codemath.github.io/Selenium-%ED%99%9C%EC%9A%A9%EA%B8%B0(1)/" rel="alternate" type="text/html" title="Selenium 활용기(1)" /><published>2017-09-08T00:00:00+09:00</published><updated>2017-09-08T00:00:00+09:00</updated><id>https://codemath.github.io/Selenium 활용기(1)</id><content type="html" xml:base="https://codemath.github.io/Selenium-%ED%99%9C%EC%9A%A9%EA%B8%B0(1)/">&lt;figure&gt;
 	&lt;img src=&quot;https://huddle.eurostarsoftwaretesting.com/wp-content/uploads/2017/02/Selenium.jpg&quot; /&gt;
 &lt;/figure&gt;
 
@@ -31,7 +31,7 @@
 &lt;/div&gt;
 &lt;p&gt;Pagination 코드 부분이 onclick 이벤트로 함수를 불러서 이동하는 것이다. 그리고 10개 단위로 ‘다음 페이지 세트’로 이동도 해줘야한다. 이럴 경우 단순한 HTML 코드로 전체 데이터를 긁어오는 것이 무리다. 따라서 Beautifulsoup가 아닌 Selenium을 이용해 데이터를 긁어오도록 하였다.&lt;/p&gt;
 
-&lt;h4 id=&quot;selenium-코드-python27-기준&quot;&gt;Selenium 코드 (Python2.7 기준)&lt;/h4&gt;
+&lt;h2 id=&quot;selenium-코드-python27-기준&quot;&gt;Selenium 코드 (Python2.7 기준)&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*- coding: utf-8 -*-
 import urllib2
@@ -83,7 +83,7 @@ f.close()
 
 &lt;p&gt;우선 전체적인 코드는 위와 같다. 하나씩 뜯어서 분석해보자.&lt;/p&gt;
 
-&lt;h3 id=&quot;1-import-라이브러리&quot;&gt;1) import 라이브러리&lt;/h3&gt;
+&lt;h2 id=&quot;1-import-라이브러리&quot;&gt;1) import 라이브러리&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# -*- coding: utf-8 -*-
 import urllib2
 from selenium import webdriver
@@ -96,22 +96,25 @@ import csv
 편하게 설치하기 위해서는 pip 로 설치하는게 좋다.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;pip install selenium
-&lt;a href=&quot;http://selenium-python.readthedocs.io/installation.html&quot;&gt;설치 DOC&lt;/a&gt;
+  &lt;p&gt;pip install selenium&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://selenium-python.readthedocs.io/installation.html&quot;&gt;설치 DOC&lt;/a&gt;
 로 설치하자. 그리고 추가적으로 설치해야하는 드라이버가 있는데, 개인의 취향(?)에 따른 드라이버를 다운받는다.
 webdriver를 통해 우리가 사용하는 노트북,컴퓨터의 브라우저를 자동 제어할 수 있기 위함이다.&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;figure&gt;
 	&lt;img src=&quot;https://github.com/CodeMath/codemath.github.io/blob/master/assets/img/media/selenium_0.png?raw=true&quot; /&gt;
 &lt;/figure&gt;
 &lt;p&gt;webdriver 폴더에 들어가면 다양한 브라우저를 지원하는 것을 알 수 있다.&lt;/p&gt;
 
-&lt;p&gt;보통 윈도우/맥 유저 편하게 사용할 수 있는 크롬 브라우저 웹 드라이버를 다운받자.(아니면 파이어폭스)
-&lt;a href=&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads&quot;&gt;Chrome driver 다운로드 링크&lt;/a&gt;
-&lt;a href=&quot;https://github.com/mozilla/geckodriver&quot;&gt;FireFox driver 다운로드 링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;보통 윈도우/맥 유저 편하게 사용할 수 있는 크롬 브라우저 웹 드라이버를 다운받자.(아니면 파이어폭스)&lt;/p&gt;
 
-&lt;h3 id=&quot;2-접속할-url-setting&quot;&gt;2) 접속할 URL setting&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://sites.google.com/a/chromium.org/chromedriver/downloads&quot;&gt;Chrome driver 다운로드 링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/geckodriver&quot;&gt;FireFox driver 다운로드 링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-접속할-url-setting&quot;&gt;2) 접속할 URL setting&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hdr = {'User-Agent': 'Mozilla/5.0', 'referer': 'http://www.google.com'}
 path = &quot;/PATH-TO-/chromedriver&quot;
 urls = &quot;http://61.73.100.30/kr/bbs/iframe/list.jsp?bbsid=1273209703694&quot;
@@ -125,13 +128,14 @@ urls = &quot;http://61.73.100.30/kr/bbs/iframe/list.jsp?bbsid=1273209703694&quot
 
 &lt;p&gt;사실 ‘User-Agent’는 쉽게 말해 브라우저의 종류를 판단하는 것으로 사용되어왔다.(물론 워낙 브라우저 종류가 많아서, 판단하기가 쉽지는 않지만.) 대표적인 브라우저 몇몇의 특징이 있다. 그동안 브라우저나 OS 판단 용으로 이해하고 있었는데 이번 기회에 확실하게 공부하였다.&lt;/p&gt;
 
-&lt;p&gt;자세한 내용은 다음 사이트를 참고하면 된다.(물론 크롤링하기 위해서 다 알아야할 필요는 없지만…) &lt;a href=&quot;http://ohgyun.com/292&quot;&gt;User-Agent 설명 잘 된 사이트 링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;자세한 내용은 다음 사이트를 참고하면 된다.(물론 크롤링하기 위해서 다 알아야할 필요는 없지만…) 
+&lt;a href=&quot;http://ohgyun.com/292&quot;&gt;User-Agent 설명 잘 된 사이트 링크&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;또한 ‘referer’는 로그분석이나 접근제어할 때 주로 사용한다. 쉽게 말해 어디에서 이 사이트로 들어왔나? 라는 정보를 가지고 온다고 생각하면 된다.&lt;/p&gt;
 
 &lt;p&gt;그리고 urls 변수에 크롤링할 URL을 입력한다.&lt;/p&gt;
 
-&lt;h3 id=&quot;3-접속할-url-setting&quot;&gt;3) 접속할 URL setting&lt;/h3&gt;
+&lt;h2 id=&quot;3-접속할-url-setting&quot;&gt;3) 접속할 URL setting&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# csv open
 f = open('output.csv', 'w')
 wr = csv.writer(f)
@@ -146,21 +150,24 @@ driver.get(urls)
 
 &lt;p&gt;새로운 csv 파일을 만들기 위해서는 주석을 제외한 첫 번째 코드를 보면 된다.&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;f = open(‘output.csv’, ‘w’)
-여기서 open함수에는 읽기/쓰기/수정 등등의 권한을 명시하여 사용하면 된다. 우리는 쓰기 권한이 필요하므로 ‘w’ = ‘write’.&lt;/p&gt;
+  &lt;p&gt;f = open(‘output.csv’, ‘w’)&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;여기서 open함수에는 읽기/쓰기/수정 등등의 권한을 명시하여 사용하면 된다. 우리는 쓰기 권한이 필요하므로 ‘w’ = ‘write’.&lt;/p&gt;
 
 &lt;p&gt;csv부분에 대한 자세한 공부는 &lt;a href=&quot;https://docs.python.org/2/library/csv.html&quot;&gt;다음 링크&lt;/a&gt;를 참조하자.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;wr = csv.writer(f)
-이 코드는 앞서 열었던 csv 파일(f)에 작성을 한다는 뜻이다.&lt;/p&gt;
+  &lt;p&gt;wr = csv.writer(f)&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;이 코드는 앞서 열었던 csv 파일(f)에 작성을 한다는 뜻이다.&lt;/p&gt;
+
 &lt;blockquote&gt;
-  &lt;p&gt;wr.writerow([u’#’,u’상호’.encode(‘utf-8’),u’홈페이지’.encode(‘utf-8’),u’대표자’.encode(‘utf-8’),u’모바일’.encode(‘utf-8’)])
-그리고 첫 번째 row에는 table에서 뽑을 데이터 구분을 위해 미리 1줄을 입력하자. ‘writerow’를 통해 한 줄을 작성한다.&lt;/p&gt;
+  &lt;p&gt;wr.writerow([u’#’,u’상호’.encode(‘utf-8’),u’홈페이지’.encode(‘utf-8’),u’대표자’.encode(‘utf-8’),u’모바일’.encode(‘utf-8’)])&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;그리고 첫 번째 row에는 table에서 뽑을 데이터 구분을 위해 미리 1줄을 입력하자. ‘writerow’를 통해 한 줄을 작성한다.&lt;/p&gt;
 
 &lt;figure&gt;
 	&lt;img src=&quot;https://designedbynatalie.files.wordpress.com/2011/05/asciierrorsgraphic.gif?raw=true&quot; /&gt;
@@ -175,7 +182,7 @@ driver.get(urls)
 &lt;/div&gt;
 &lt;p&gt;그리고 앞서 설정한 크롬 브라우저 드라이버의 경로값을 넣어서 webdriver를 불러오자. 크롤링할 웹 사이트로 이동하자.(get method)&lt;/p&gt;
 
-&lt;h3 id=&quot;4-javascript-잡아내기&quot;&gt;4) Javascript 잡아내기&lt;/h3&gt;
+&lt;h2 id=&quot;4-javascript-잡아내기&quot;&gt;4) Javascript 잡아내기&lt;/h2&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a_link = 3
 for each in range(1,153):
     if each != 152:
@@ -237,14 +244,16 @@ driver.find_element_by_xpath('//*[@id=&quot;content&quot;]/div[2]/table/tbody/tr
 &lt;p&gt;이동할 페이지에서 element를 찾을 때 id 값이나 class나 다양한 방법으로 처리할 수 있지만, 가장 편한 방법은 xpath로 찾는 것이다. (편함 x 1000000)&lt;/p&gt;
 
 &lt;figure&gt;
-	&lt;img src=&quot;https://designedbynatalie.files.wordpress.com/2011/05/selenium_1.png?raw=true&quot; /&gt;
+	&lt;img src=&quot;https://github.com/CodeMath/codemath.github.io/blob/master/assets/img/media/selenium_1.png?raw=true&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;크롬 브라우저 기준으로 크롤링할 데이터가 있는 부분에 마우스 우클릭-&amp;gt;검사-&amp;gt;Copy-&amp;gt;Copy XPath 로 가져오면 된다.&lt;/p&gt;
+
 &lt;blockquote&gt;
-  &lt;p&gt;’//*[@id=”content”]/div[2]/table/tbody/tr[‘+str(li)+’]/td[1]’
-앞서 가져온 XPath를 분석해보면 id값 기준으로 트리를 타는 듯 한 느낌이 보인다. (‘/’ 기준으로 트리로 자식안으로 쉽게 들어가니까…)&lt;/p&gt;
+  &lt;p&gt;’//*[@id=”content”]/div[2]/table/tbody/tr[‘+str(li)+’]/td[1]’&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;앞서 가져온 XPath를 분석해보면 id값 기준으로 트리를 타는 듯 한 느낌이 보인다. (‘/’ 기준으로 트리로 자식안으로 쉽게 들어가니까…)&lt;/p&gt;
 
 &lt;p&gt;여튼 다시 본론으로 들어가면, 각 페이지마다 10개의 데이터가 있다. 따라서 loop를 돌릴 때, 각각의 데이터들에 맞게 위치를 맞춰서 돌리면 된다.&lt;/p&gt;
 
@@ -265,10 +274,12 @@ on_html_bt.click()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;앞서 Pagination 부분을 보면 onclick event로 넘어가는 것을 확인했다. 따라서 다음 페이지로 이동할 때를 생각하면 다음과 같은 로직으로 정리된다. 처음에는 1페이지이지만, XPath 는&lt;/p&gt;
+
 &lt;blockquote&gt;
-  &lt;p&gt;’//*[@id=”content”]/div[3]/div/a[3]’
-즉, 3번째 a 테그 부터가 1,11,21,31… 로 시작하는 것이다. 따라서 맨 처음 시작을 a_link라는 변수에 3으로 담아서 시작한다.&lt;/p&gt;
+  &lt;p&gt;’//*[@id=”content”]/div[3]/div/a[3]’&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;p&gt;즉, 3번째 a 테그 부터가 1,11,21,31… 로 시작하는 것이다. 따라서 맨 처음 시작을 a_link라는 변수에 3으로 담아서 시작한다.&lt;/p&gt;
 
 &lt;p&gt;첫 번째 페이지에서 데이터를 뽑으면 a_link는 3이지 13이 아니므로, +=1이 되어 4가 되고 2번째 페이지로 이동한다.
 이 과정이 계속 일어나면 10번째 페이지로 이동할 때는 a_link는 12이 된다. 10번 째 페이지의 데이터를 뽑고 나서 a_link는 12이므로 역시 +=1이되어 13이 되고 13번째 a 테그가 있는 부분인 ‘다음 페이지 세트’로 넘어가게 된다.
@@ -282,6 +293,7 @@ on_html_bt.click()
 f.close()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
 &lt;p&gt;마지막으로 앞서 열었던 csv파일인 f를 닫아준다. (print 는 끝났다는 신호로 사용)&lt;/p&gt;
 
 &lt;p&gt;최종 정리된 데이터가 들어있는 csv파일을 열어보면 이쁘게 정리되어있는 것을 확인 할 수 있다.&lt;/p&gt;
