@@ -1,7 +1,7 @@
 # Site
-title:              coDematH
+title:              Codemath 블로그
 bio:                'Beautiful Python & Flexible Swift Developer'
-description:        "The goal is not to find a job, but to CREATE one for myself."
+description:        "Codemath 블로그 - The goal is not to find a job, but to CREATE one for myself."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/logo.png'
@@ -30,9 +30,9 @@ disqus_shortname:   codemath
 
 # Social
 # if you don't have any of social below, comment the line.
-#google:
+google:
   #plus:            #username
-  #analytics:
+  analytics: UA-110508767-1
   #verify:
   #ad-client:
   #ad-slot:
