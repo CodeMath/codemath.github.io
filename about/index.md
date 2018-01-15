@@ -42,12 +42,28 @@ comments: false
 - Outsourcing
 
 
+## Activity
+### [2017.10] 2017 HanYang Univ, Entertainment-Design Interactive & Web page
+- Webcam follos the specific QR code and find coordinate. 
+- And outputs the path of the coordinate value as an SVG image.
+- used python2.7, opencv, zbar, redis, flask, SSE
+- [source code](https://github.com/CodeMath/visible-invisible)
+
+
+### [2017.9] 2017 MEDICOLOR Hackathon
+- Third prize & Special prize
+- [source code](https://github.com/CodeMath/medicolor_2017)
+
+## Study
+- Django Study at Taling(Korea)
+- Django Study at Youtube(No search list)
+- Python Study at Remain(Korea)
+- Python Tutorial at Gitbbok(Breaking Python)
+
+
 ## Education
-* 2016.01-2016.03 udemy, Django programing
-* 2015.05-2015.08 udemy, iOS8 and Swift Course
 * 2009-2016 Kyung-Hee University, Mathematics
-* 2014.06-2014.06 codecademy, Web-Programing(HTML & CSS, jQuery, Python, Javascript)
-* 2014.06-2014.09 LikeLion, Web-Programing with Python & Flask
+* 2014 LikeLion, Web-Programing with Python & Flask
 
 
 ## Technical Stacks [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat){: .img-alignleft}](https://stackshare.io/CodeMath/codemath-stack)
@@ -56,7 +72,9 @@ comments: false
 * Full stack development using DRF
 * Build  Server-less architecture used by AWS Lambda
 * Strong : Python, Django, HTML, CSS, Javascript, MySQL, Git
-* Knowledgeable: Swift 3.0, Docker, TDD
+* Knowledgeable: Swift 3.0, Docker, TDD, 
+* New : React Native
+
 
 ## Contact
 [email](mailto:xyrho123@wowwell.co.kr){: .btn}
