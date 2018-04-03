@@ -85,7 +85,7 @@ mapping (address => uint) public accountBalance;
 
 파이썬의 dict와 비슷(?)한 느낌. `key-value` 저장소를 말함. 데이터를 저장/검색할 수 있다. 즉, 위의 예시에서는 `address` 가 `key`가 되고 `uint`인 값이 저장된다.
 
-
+* * *
 
 ### 함수
 
@@ -182,6 +182,29 @@ function multipleReturns() internal returns(uint a, uint b, uint c) {
 
 순서대로 처리 된다. 만약 빈값을 중간에 떨구려면 `(,2,3)` 이런식으로 하면 된다.
 
+#### 함수 제어자
+function modifier라고 부르며, 이 제어자는 다른 함수들에 대한 접근을 제어하기 위해 사용되는 유사 함수이다. 보통 함수 실행 전의 요구사항 충족 여부를 확인하는데 사용한다.
+
+```
+modifier onlyOwner(){
+  requre(msg.sender == owner);
+  _;
+}
+
+...
+
+contract MyContract is Ownable {
+  event LaughManiacally(string laughter);
+
+  function likeABoss() external onlyOwner {
+    LaughManiacally("Muahahahaha");
+  }
+}
+```
+
+`likeABoss` 함수 뒤에 붙은 `onlyOwner` 제어자 부분을 살펴보면, `likeABoss` 함수를 호출하면 `onlyOwner` 의 코드가 먼저 실행된다. 그리고 그 뒷 부분인 `_;` 부분에 `likeABoss` 함수가 실행된다.
+
+* * *
 
 ### keccak256/형변환
 
@@ -203,7 +226,7 @@ uint8 c = a * b;  // 오류발생
 uint8 c = a * uint8(b); // 정상
 ```
 
-
+* * *
 
 ### 이벤트
 
@@ -221,7 +244,7 @@ function add(uint _x, uint _y) public {
 }
 ```
 
-
+* * *
 
 ### msg.sender
 
@@ -241,6 +264,7 @@ function getNumber(uint _Number) public {
 
 매핑을 만들어 저장한다. 이때 매핑에 들어갈 키값은 `msg.sender`로 함수를 호출한 계정주소값에 해당한다.
 
+* * *
 
 ### Require
 
@@ -260,6 +284,7 @@ function sayHi(string _name) public returns (string) {
 
 위 함수의 인자로 들어온 값이 "satoshi"가 아니면 에러가 발생한다.
 
+* * *
 
 ### 상속/다른 파일 가져오기/상호작용
 
@@ -329,7 +354,7 @@ contract OddNumber {
 
 `OddNumber` 컨트랙트에서 `NumberInterface`의 `getNum`을 사용하기 위해 인터페이스를 사용.
 
-
+* * *
 
 ### 스토리지/메모리
 
