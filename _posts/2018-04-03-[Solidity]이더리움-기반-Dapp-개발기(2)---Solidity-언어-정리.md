@@ -16,6 +16,7 @@ comments: true
 Solidity 언어 정리. (^0.4.19 기준)
 
 1) 기본내용 추가(18.4.3)
+2) 추가 내용 정리(18.4.4)
 ```
 
 
@@ -110,6 +111,10 @@ function createPerson(string _name, uint _age) private{
 }
 ```
 
+`private` 는 해당 컨트랙트에만 호출되고 상속되는 부분에는 호출 될 수 없다. 
+
+`public` 은 해당 컨트랙트 뿐만 아니라, 외부에서도 호출될 수 있다.
+
 
 #### returns 
 
@@ -125,15 +130,17 @@ function sayHello() public retuns(string){
 특이하게도 반환값의 타입을 지정해줘야한다.
 
 
-#### view/pure 
+#### 상태 제어자(state modifier) view/pure
 
-위 함수처럼 `상태 변화`가 없는 함수에는 `view`를 붙인다. 즉, 함수는 데이터를 보기만하고 변경하지 않는다는 뜻이다.
+이들 모두는 컨트랙트 외부에서 불렸을 때 가스를 소모하지 않는다. (하지만 다른 함수에 의해 내부적으로 호출되면, 가스를 소모한다.)
+
+`상태 변화`가 없는 함수에는 `view`를 붙인다. 즉, 함수는 데이터를 보기만하고 변경하지 않는다는 뜻이다. 블록체인과 상호작용 하는 방법. 
 ```
 function sayHello() public view retuns(string){ }
 ```
 
 
-`pure` 함수는 앱에서 어떤 데이터도 접근하지 않는 것을 의미한다.
+`pure` 함수는 앱에서 어떤 데이터도 접근하지 않는 것을 의미한다. 해당 함수가 어떤 데이터도 블록체인에 저장하지 않을 뿐만 아니라, 블록체인으로부터 어떤 데이터도 읽지 않는다. 
 
 ```
 function _multiply(uint a, uint b) private pure returns (uint) {
@@ -151,6 +158,11 @@ function _multiply(uint a, uint b) private pure returns (uint) {
 `internal` 은 함수가 정의된 컨트렉트를 상속하는 컨트렉트에서도 접근 가능. (private와 비슷)
 
 `external` 은 함수가 컨트랙트 바깥에서만 호출될 수 있다. 컨트랙트 내의 다른 함수에 의해 호출 될 수 없다.
+
+`internal` 은 `private` 와 비슷 하지만, 해당 컨트랙트를 상속하는 컨트랙트에서도 호출 될 수 있다.
+
+`external` 은 오직 컨트랙트 외부에서만 호출될 수 있다.(외부 호출 시, 가스 무료)
+
 
 ```
 contract Sandwich {
@@ -203,6 +215,24 @@ contract MyContract is Ownable {
 ```
 
 `likeABoss` 함수 뒤에 붙은 `onlyOwner` 제어자 부분을 살펴보면, `likeABoss` 함수를 호출하면 `onlyOwner` 의 코드가 먼저 실행된다. 그리고 그 뒷 부분인 `_;` 부분에 `likeABoss` 함수가 실행된다.
+
+
+#### payable 제어자
+
+이더리움을 받을 수 있는 제어자. 
+
+```
+contract OnlineStore {
+  function buySomething() external payable {
+    require(msg.value == 0.001 ether);
+    transferThing(msg.sender);
+  }
+}
+```
+
+위 코드에서 `msg.value`는 컨트랙트로 이더리움이 얼마나 보내졌는지 확인하는 것이다. ether는 단위.
+
+
 
 * * *
 
@@ -437,7 +467,7 @@ sandwiches[_index + 1] = anotherSandwich; // (7)
 
 
 
-### if 문
+### 조건/반복문
 
 #### if 문
 
@@ -451,6 +481,20 @@ function eat(string sandwich) public {
 }
 ```
 
+#### for 문
 
+솔리디티의 for문은 자바스크립트와 동일하다.
+
+```
+uint[] memory evens = new uint[](5);
+uint counter = 0;
+for (uint i=0; i <= 10; i++){
+  if (i % 2 == 0) {
+    evens[counter] = i;
+    counter++;
+  }
+}
+```
+evens라는 uint형 배열(5)에 짝수인 경우만 원소를 받는다고 했을 때의 코드이다.
 
 
